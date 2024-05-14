@@ -9,7 +9,7 @@ import type {
 import { createSIWEConfig } from "@web3modal/siwe";
 
 export const siweConfig = createSIWEConfig({
-  signOutOnDisconnect: false,
+  signOutOnNetworkChange: false,
   createMessage: ({ nonce, address, chainId }: SIWECreateMessageArgs) =>
     new SiweMessage({
       version: "1",
