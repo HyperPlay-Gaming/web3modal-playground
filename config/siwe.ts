@@ -9,6 +9,7 @@ import type {
 import { createSIWEConfig } from "@web3modal/siwe";
 
 export const siweConfig = createSIWEConfig({
+  signOutOnDisconnect: false,
   createMessage: ({ nonce, address, chainId }: SIWECreateMessageArgs) =>
     new SiweMessage({
       version: "1",
@@ -34,7 +35,7 @@ export const siweConfig = createSIWEConfig({
       const success = await signIn("ethereum", {
         message,
         redirect: false,
-        signature
+        signature,
       });
 
       return Boolean(success?.ok);
