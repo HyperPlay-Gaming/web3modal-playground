@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import ConnectButton from "@/component/connect-button";
-import { auth } from "@/config/next-auth";
+import { auth } from "./api/auth/[...nextauth]/route";
 
 export default async function Home() {
   const session = await auth();
