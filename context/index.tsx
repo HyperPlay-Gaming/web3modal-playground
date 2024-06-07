@@ -9,6 +9,7 @@ import { createWeb3Modal } from "@web3modal/wagmi/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { State, WagmiProvider } from "wagmi";
+import ConnectButton from "@/component/connect-button";
 
 // Setup queryClient
 const queryClient = new QueryClient();
@@ -33,7 +34,10 @@ export default function Web3ModalProvider({
 }) {
   return (
     <WagmiProvider config={config} initialState={initialState}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <ConnectButton />
+        {children}
+      </QueryClientProvider>
     </WagmiProvider>
   );
 }
